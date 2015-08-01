@@ -50,16 +50,14 @@ CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 REGISTERED_IP=$(dig +short $RECORD.$DOMAIN)
 
 if [ "$CURRENT_IP" != "$REGISTERED_IP" ]; then
-  DATA=$(cat<<EOF
-[
+  DATA="[
   {
     "type": "A",
     "name": "$RECORD",
     "data": "$CURRENT_IP",
     "ttl": 600
   }
-]
-EOF)
+]"
   TEMP=$(curl -f -sS -H "$AUTH" "$URL")
   [ "$TEMP" == "[]" ] && error "Host or domain not found." 1
   curl -sS --request PUT -f -d "$DATA"  \
