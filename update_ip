@@ -59,7 +59,8 @@ if [ "$CURRENT_IP" != "$REGISTERED_IP" ]; then
     "ttl": 600
   }
 ]
-EOF)
+EOF
+)
   TEMP=$(curl -f -sS -H "$AUTH" "$URL")
   [ "$TEMP" == "[]" ] && error "Host or domain not found." 1
   curl -sS --request PUT -f -d "$DATA"  \
