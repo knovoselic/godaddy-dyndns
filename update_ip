@@ -64,5 +64,5 @@ if [ "$CURRENT_IP" != "$REGISTERED_IP" ]; then
        -H "Accept: application/json" \
        -H "Content-Type: application/json" \
        -H "$AUTH" "$URL" > /dev/null
-  echo "Successfully changed IP from $REGISTERED_IP to $CURRENT_IP."
+  echo "[`date -u +"%Y-%m-%dT%H:%M:%SZ"`] Successfully changed IP from $REGISTERED_IP to $CURRENT_IP."
 fi
