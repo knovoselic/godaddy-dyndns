@@ -1,4 +1,5 @@
 #!/bin/sh
+[ -z ${DEBUG_OUTPUT+x} ] || set -x
 set -o errexit
 set -o pipefail
 
