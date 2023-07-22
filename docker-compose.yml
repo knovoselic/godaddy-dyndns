@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    image: com.xx77abs.godaddy-dyndns
+    build: .
+    restart: always
+    environment:
+      - DOMAIN=$DOMAIN
+      - RECORD=$RECORD
+      - GODADDY_KEY=$GODADDY_KEY
+      - GODADDY_SECRET=$GODADDY_SECRET
